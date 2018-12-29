@@ -1,0 +1,282 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!--Delete for production-->
+    <link rel="shortcut icon" href="#">
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-video"
+      src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <script async custom-element="amp-story"
+        src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    
+    <script async src="./detour.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <title>Deconstructed: Russian Psyops</title>
+    <!-- <link rel="canonical" href="http://api.frame.media/stories/deconstructed-russian-psyops/?fbclid=IwAR210cmAnf4zDBuPujQ9TwW6siqT-M1nPJV3E4_ays8MxNEceQALoJC124o" /> -->
+    <meta name="viewport"
+        content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+      amp-story {
+        font-family: 'Roboto Condensed', sans-serif;
+        color: #fff;
+      }
+      amp-story-page {
+        background-color: #000;
+      }
+
+      body {
+        /* background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(171,171,171,1) 50%, rgba(0,0,0,1) 100%); */
+        background: rgb(128,128,128);
+        background: radial-gradient(circle, rgba(128,128,128,1) 48%, rgba(46,46,46,1) 100%);
+      }
+
+      #cta-experiment {
+          /* background-color: red;
+          color: white;
+          width: 5em;
+          padding: .5em;
+          border-radius: .5em; */
+          margin: 0 auto;
+          padding: 1em;
+          text-align: center;
+          /* font-size: 150%; */
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* #DetourLanding {
+        margin-top: 100em;
+        height:100vh;
+        min-height:100vh;
+      } */
+
+      #detour-window {
+        margin-top: 100vh;
+        height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+        height: calc(var(--vh, 1vh) * 100);
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .detour-button {
+        font-family: Futura;
+        font-size: 200%;
+        margin: 0 auto;
+        color: #4c617a;
+        background-color: black;
+        border: 5px solid #4c617a;
+        padding: 5px;
+        box-shadow: 0px 0px 20px 2px white;        
+      }
+
+      .return-button {
+        font-family: Futura;
+        font-size: 200%;
+        color: #4c617a;
+        background-color: black;
+        border: 5px solid #4c617a;
+        padding: 5px;
+        box-shadow: 0px 0px 20px 2px white;  
+        z-index: 9999;
+        position: absolute;
+        bottom: 18%;
+        left: 33%;
+      }
+
+      .restart-button {
+        font-family: Futura;
+        position: absolute;
+        z-index: 9999;
+        color: #4c617a;
+        background-color: black;
+        border-radius: 50%;
+        padding: 0px 8px;
+        font-size: 200%;
+        border: 5px solid #4c617a;
+        top: 4%;
+        left: 7%;
+        cursor: pointer;
+      }
+
+      #detour-vid-container {
+        font-family: 'Roboto Condensed', sans-serif;
+        position: absolute;
+        color: #fff;
+        background-color: #000;
+        border-radius: 1em;
+        min-height: 41em;
+        max-height: 62em;
+        width: 100%;
+        max-width: 25em;
+        /* margin: 300px auto 3%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: 0px 0px 20px 2px rgb(43, 43, 43);  
+      }
+
+      #detour-vid {
+        z-index: 9997;
+        width: 100%;
+        position: absolute;
+      }
+
+      /* #overlay {
+        z-index: 9999;
+        position: absolute;
+        top: 600px;
+        background-color: red;
+        color: white;
+        width: 5em;
+        padding: .5em;
+        border-radius: .5em;
+        text-align: center;
+      } */
+
+      #return-target {
+        height: 1px;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+      <span id="return-target"></span>
+        <amp-story standalone
+        title="Deconstructed: Russian Psyops"        
+        publisher="Frame"
+        id="TopMost"
+            
+      >
+        
+        <amp-story-page
+          id="Launch" 
+        >
+            <amp-install-serviceworker
+                src="./service-worker.js"
+                layout="nodisplay">
+            </amp-install-serviceworker>
+          <amp-story-grid-layer template="fill">
+              <amp-img
+                src="./images/Launch.jpg"
+                layout="responsive"
+                width="592"
+                height="1067"
+              >
+              </amp-img>
+          </amp-story-grid-layer>
+        </amp-story-page>
+        
+
+        <amp-story-page
+          id="RP1"
+          auto-advance-after=RP1-video
+        >
+
+          <amp-story-grid-layer template="fill">  
+              <amp-video
+                id="RP1-video"
+                layout="fill"
+                src="./videos/RP1.mp4"
+                muted
+                autoplay 
+              >
+              </amp-video>
+          </amp-story-grid-layer>
+        </amp-story-page>
+
+
+        <amp-story-page
+          id="RP2"
+          auto-advance-after=RP2-video
+        >
+
+          <amp-story-grid-layer template="fill">
+              <amp-video
+                id="RP2-video"
+                layout="fill"
+                src="./videos/RP2.mp4"
+                muted
+                autoplay
+                playsinline
+              >
+              </amp-video>
+          </amp-story-grid-layer>  
+        </amp-story-page>
+        
+
+        <amp-story-page
+          id="Title"
+          name="Title"
+        >
+
+          <amp-story-grid-layer template="fill">
+              <amp-img
+                src="./images/TitleSlide.jpg"
+                layout="responsive"
+                width="600"
+                height="1072" 
+              >
+              </amp-img>
+          </amp-story-grid-layer>
+          <amp-story-cta-layer>
+            <div id="cta-experiment"
+              animate-in="fly-in-bottom"
+              animate-in-delay="0s"
+              animate-in-duration=".8s">
+              <a id="detour-trigger"><span class="detour-button">DETOUR</span></a>
+            </div>
+          </amp-story-cta-layer>
+        </amp-story-page>
+        
+        <amp-story-page
+          id="Part1"
+          name="Part1"
+        >
+          
+          <amp-story-grid-layer template="fill">
+              <amp-img
+                src="./images/Part1.jpg"
+                layout="responsive"
+                width="598"
+                height="1068"
+              >
+              </amp-img>
+          </amp-story-grid-layer>
+        </amp-story-page>
+    
+        
+    </amp-story>
+
+    <div id="detour-window">
+      <span id="DetourLanding"></span>
+      <div id="detour-vid-container">
+        <!-- <h1>The Russian Propaganda Machine in Action</h1> -->
+        <!-- <img id="detour-img" src=""> -->
+        <a id="detour-return"><span class="return-button">RETURN</span></a>
+        <a id="detour-restart"><span class="restart-button">&#8634;</span></a>
+        <video id="detour-vid" src="./videos/RP3.mp4" playsinline>
+        </video>
+      </div>
+    </div>
+
+
+</body>
+<style>
+      .i-amphtml-story-progress-bar {
+        display: none!important;
+      }
+</style>
+</html>
+  
