@@ -61,7 +61,8 @@
 
       #detour-window {
         margin-top: 100vh;
-        height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+        margin-top: calc(var(--vh, 1vh) * 100);
+        height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
         display: flex;
         position: relative;
@@ -125,6 +126,12 @@
         align-items: center;
         overflow: hidden;
         box-shadow: 0px 0px 20px 2px rgb(43, 43, 43);  
+      }
+
+      @media (max-width: 767.98px) { 
+        #detour-vid-container {
+          top: 0;
+        }
       }
 
       #detour-vid {
@@ -260,8 +267,9 @@
     </amp-story>
 
     <div id="detour-window">
-      <span id="DetourLanding"></span>
       <div id="detour-vid-container">
+        <span id="DetourLanding"></span>
+
         <!-- <h1>The Russian Propaganda Machine in Action</h1> -->
         <!-- <img id="detour-img" src=""> -->
         <a id="detour-return"><span class="return-button">RETURN</span></a>
