@@ -134,7 +134,7 @@
         }
       }
 
-      #detour-vid {
+      .detour-vid {
         z-index: 9997;
         width: 100%;
         position: absolute;
@@ -242,7 +242,7 @@
               animate-in="fly-in-bottom"
               animate-in-delay="0s"
               animate-in-duration=".8s">
-              <a id="detour-trigger"><span class="detour-button">DETOUR</span></a>
+              <a class="detour-trigger"><span class="detour-button">DETOUR</span></a>
             </div>
           </amp-story-cta-layer>
         </amp-story-page>
@@ -261,7 +261,18 @@
               >
               </amp-img>
           </amp-story-grid-layer>
+          <amp-story-cta-layer>
+            <div id="cta-experiment"
+              animate-in="fly-in-bottom"
+              animate-in-delay="0s"
+              animate-in-duration=".8s">
+              <a class="detour-trigger"><span class="detour-button">FOX</span></a>
+              <a class="detour-trigger"><span class="detour-button">CNN</span></a>
+            </div>
+          </amp-story-cta-layer>
         </amp-story-page>
+
+
     
         
     </amp-story>
@@ -274,7 +285,11 @@
         <!-- <img id="detour-img" src=""> -->
         <a id="detour-return"><span class="return-button">RETURN</span></a>
         <a id="detour-restart"><span class="restart-button">&#8634;</span></a>
-        <video id="detour-vid" src="./videos/RP3.mp4" playsinline>
+        <video class="detour-vid" src="./videos/RP3.mp4" style="display: none" playsinline>
+        </video>
+        <video class="detour-vid" src="./videos/RP4.mp4" style="display: none" playsinline>
+        </video>
+        <video class="detour-vid" src="./videos/RP5.mp4" style="display: none" playsinline>
         </video>
       </div>
     </div>

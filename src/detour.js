@@ -1,39 +1,39 @@
-// var imageClicker = document.getElementById("detour-img");
-
-// imageClicker.addEventListener("click", function() {
-//     console.log("I was clicked");
-//     console.log(imageClicker.src);
-//     if (imageClicker.src == "http://localhost:8889/src/images/propaganda.jpg") {
-//         imageClicker.src = "http://localhost:8889/src/images/propaganda2.jpg";
-//     } else {
-//         imageClicker.src = "http://localhost:8889/src/images/propaganda.jpg";
-//     }
-// })
+// SIZING THE DETOUR VIEW HIEGHT FOR THE WINDOW
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 window.addEventListener('resize', () => {
-    // We execute the same script as before
+    // Same script as before on resize
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
-let detourTrigger = document.getElementById("detour-trigger");
-let detourVid = document.getElementById("detour-vid");
+// DETOUR VIDEO ROTATION
+
+let detourTriggers = document.getElementsByClassName("detour-trigger");
+let detourButtons = document.getElementsByClassName("detour-button");
+let detourVids = document.getElementsByClassName("detour-vid");
 let detourReturn = document.getElementById("detour-return");
 let detourRestart = document.getElementById("detour-restart");
+let active;
 
-detourTrigger.addEventListener("click", function() {
-    document.getElementById('DetourLanding').scrollIntoView(true);
-    detourVid.play();
-})
+for (var i = 0; i < detourTriggers.length; i++) {
+    detourButtons[i].id = "trigger"+i;
+    detourTriggers[i].addEventListener("click", event => {
+        document.getElementById('DetourLanding').scrollIntoView(true);
+        active = event.target.id.slice(-1);
+        detourVids[active].style.display = "block";
+        detourVids[active].play();
+    });
+};
 
 detourReturn.addEventListener("click", function(){
     document.getElementById('return-target').scrollIntoView(true);
-    detourVid.pause();
+    detourVids[active].pause();
+    detourVids[active].style.display = "none";
 })
 
 detourRestart.addEventListener("click", function() {
-    detourVid.currentTime = 0;
+    detourVids[active].currentTime = 0;
 })
