@@ -30,10 +30,10 @@
         background: radial-gradient(circle, rgba(128,128,128,1) 48%, rgba(46,46,46,1) 100%);
       }
 
-      #cta-experiment {
+      .cta-experiment {
           margin: 0 auto;
-          padding: 1em;
           text-align: center;
+          width: 90%;
       }
 
       a {
@@ -58,11 +58,13 @@
         border: 5px solid #4c617a;
         font-size: 175%;
         z-index: 9999;
-        box-shadow: 0px 0px 20px 2px white;  
+        /* box-shadow: 0px 0px 20px 2px white;   */
       }
 
       .detour-button {
+        font-size: 130%;
         padding: 5px;
+        color: white;
       }
 
       .return-button {
@@ -112,6 +114,56 @@
         height: 1px;
         visibility: hidden;
       }
+
+      .arrow-right {
+        position: absolute;
+        margin-top: 3.3em;
+        margin-left: 80%;
+        border-top: 2.5em solid transparent;
+        border-bottom: 2.5em solid transparent;
+        border-left: 2.5em solid black;
+      }
+
+      .arrow-body {
+        position: absolute;
+        text-align: center;
+        margin-top: 4.5em;
+        width: 80%;
+        height: 2.5em;
+        background-color: black;
+      }
+
+      .middle-arrow-body {
+        position: absolute;
+        top: 29%;
+        width: 48%;
+        height: 2.5em;
+        background-color: black;
+      }
+      
+      .middle-arrow-body-down-fly {
+        position: absolute;
+        right: 45%;
+        top: 29%;
+        height: 45%;
+        width: 2.5em;
+      }
+
+      .middle-arrow-body-down {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+      }
+
+      .arrow-down {
+        top: 71%;
+        right: 39%;
+        position: absolute;
+        border-top: 2.5em solid black;
+        border-right: 2.5em solid transparent;
+        border-left: 2.5em solid transparent;
+      }
+
     </style>
   </head>
   <body>
@@ -186,19 +238,58 @@
 
           <amp-story-grid-layer template="fill">
               <amp-img
-                src="./images/TitleSlide.jpg"
+                src="./images/propog-frame.jpg"
                 layout="responsive"
                 width="600"
                 height="1072" 
               >
               </amp-img>
+
           </amp-story-grid-layer>
+
+          <amp-story-grid-layer template="fill">
+            <div class="arrow-master"
+            >
+              <div class="top-arrow-container"
+                animate-in="fly-in-left"
+                animate-in-delay="1s"
+                animate-in-duration=".4s"
+              >
+                <div class="arrow-body"></div>
+                <div class="arrow-right"></div>
+              </div>
+
+              <div class="middle-arrow-body"
+                animate-in="fly-in-left"
+                animate-in-delay=".2s"
+                animate-in-duration=".4s"
+              ></div>
+              <div class="middle-arrow-body-down-fly"
+                animate-in="fly-in-top"
+                animate-in-duration=".7s"
+                >
+                <div class="middle-arrow-body-down"
+                  animate-in="fade-in"
+                  animate-in-duration=".01s"
+                  animate-in-delay=".7s"
+                ></div>
+              </div>
+              <div class="arrow-down"
+                animate-in="fade-in"
+                animate-in-duration=".3s"
+                animate-in-delay=".7s"
+              ></div>
+            </div>
+
+            <div class="middle-arrow-body"></div>
+          </amp-story-grid-layer>
+          
           <amp-story-cta-layer>
-            <div id="cta-experiment"
-              animate-in="fly-in-bottom"
-              animate-in-delay="0s"
-              animate-in-duration=".8s">
-              <a class="detour-trigger"><span class="detour-button button-style">DETOUR</span></a>
+            <div class="cta-experiment"
+              animate-in="fade-in"
+              animate-in-delay=".9s"
+              animate-in-duration=".5s">
+              <a class="detour-trigger"><div class="detour-button button-style">DETOUR: LEARN HOW FENTANYL BOTCHED A RUSSIAN HOSTAGE CRISIS</div></a>
             </div>
           </amp-story-cta-layer>
         </amp-story-page>
@@ -218,7 +309,7 @@
               </amp-img>
           </amp-story-grid-layer>
           <amp-story-cta-layer>
-            <div id="cta-experiment"
+            <div class="cta-experiment"
               animate-in="fly-in-bottom"
               animate-in-delay="0s"
               animate-in-duration=".8s">

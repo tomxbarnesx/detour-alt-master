@@ -9,7 +9,8 @@ window.addEventListener('resize', () => {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
-// DETOUR VIDEO ROTATION
+
+// DETOUR MULTIPLE VIDEO HANDLING
 
 let detourTriggers = document.getElementsByClassName("detour-trigger");
 let detourButtons = document.getElementsByClassName("detour-button");
