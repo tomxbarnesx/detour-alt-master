@@ -110,6 +110,18 @@
         position: absolute;
       }
 
+      .img-split {
+        height: 10em;
+        width: 100%;
+        background-color: red;
+      }
+
+      .img-split2 {
+        width: 100%;
+        height: 20em;
+        background-color: red;
+      }
+
       #return-target {
         height: 1px;
         visibility: hidden;
@@ -118,32 +130,39 @@
       .arrow-right {
         position: absolute;
         margin-top: 3.3em;
-        margin-left: 80%;
+        margin-left: 85%;
         border-top: 2.5em solid transparent;
         border-bottom: 2.5em solid transparent;
         border-left: 2.5em solid black;
+        z-index: 9998;
       }
 
       .arrow-body {
         position: absolute;
         text-align: center;
+        vertical-align: middle;
         margin-top: 4.5em;
-        width: 80%;
+        width: 90%;
         height: 2.5em;
+        line-height: 2.5em;
         background-color: black;
+        z-index: 9997
       }
 
       .middle-arrow-body {
         position: absolute;
         top: 29%;
-        width: 48%;
+        width: 50%;
         height: 2.5em;
         background-color: black;
       }
       
       .middle-arrow-body-down-fly {
         position: absolute;
-        right: 45%;
+        background-color:black;
+        left: 0;
+        right: 0;
+        margin: auto;
         top: 29%;
         height: 45%;
         width: 2.5em;
@@ -157,7 +176,10 @@
 
       .arrow-down {
         top: 71%;
-        right: 39%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 5em;
         position: absolute;
         border-top: 2.5em solid black;
         border-right: 2.5em solid transparent;
@@ -236,7 +258,8 @@
           name="Title"
         >
 
-          <amp-story-grid-layer template="fill">
+          <amp-story-grid-layer template="fill"
+          >
               <amp-img
                 src="./images/propog-frame.jpg"
                 layout="responsive"
@@ -247,22 +270,24 @@
 
           </amp-story-grid-layer>
 
-          <amp-story-grid-layer template="fill">
+         <amp-story-grid-layer template="fill">
             <div class="arrow-master"
             >
               <div class="top-arrow-container"
                 animate-in="fly-in-left"
-                animate-in-delay="1s"
-                animate-in-duration=".4s"
+                animate-in-delay="1.7s"
+                animate-in-duration=".5s"
               >
-                <div class="arrow-body"></div>
+                <div class="arrow-body">
+                  <span style="font-size: 130%">TAP TO CONTINUE</span>
+                </div>
                 <div class="arrow-right"></div>
               </div>
 
               <div class="middle-arrow-body"
                 animate-in="fly-in-left"
                 animate-in-delay=".2s"
-                animate-in-duration=".4s"
+                animate-in-duration=".5s"
               ></div>
               <div class="middle-arrow-body-down-fly"
                 animate-in="fly-in-top"
@@ -276,18 +301,17 @@
               </div>
               <div class="arrow-down"
                 animate-in="fade-in"
-                animate-in-duration=".3s"
-                animate-in-delay=".7s"
+                animate-in-duration=".2s"
+                animate-in-delay=".6s"
               ></div>
             </div>
 
-            <div class="middle-arrow-body"></div>
           </amp-story-grid-layer>
           
           <amp-story-cta-layer>
             <div class="cta-experiment"
-              animate-in="fade-in"
-              animate-in-delay=".9s"
+              animate-in="fly-in-bottom"
+              animate-in-delay="1.1s"
               animate-in-duration=".5s">
               <a class="detour-trigger"><div class="detour-button button-style">DETOUR: LEARN HOW FENTANYL BOTCHED A RUSSIAN HOSTAGE CRISIS</div></a>
             </div>
