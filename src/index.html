@@ -66,7 +66,7 @@
       }
       .return-button {
         border-radius: 50%;
-        padding: 0px 9.5px;
+        padding: 0px 9px;
         position: absolute;
         top: .5em;
         left: .5em;
@@ -82,6 +82,10 @@
         z-index: 9997;
         width: 100%;
         position: absolute;
+      }
+      #DetourLanding {
+        position: absolute;
+        top: 50%;
       }
       #detour-vid-container {
         position: absolute;
@@ -101,12 +105,6 @@
           border-radius: 0em;
         }
       }
-      @media (min-width: 769px) { 
-        #detour-vid-container {
-          height: calc(var(--vh, 1vh) * 80);
-          width: calc(var(--vh, 1vh) * 100 * .45);
-        }
-      }
 /* DETOUR ARROW STYLES */
 
       #return-target {
@@ -122,7 +120,6 @@
         border-bottom: 2.5em solid transparent;
         border-left: 2.5em solid black;
       }
-
       .arrow-body {
         font-family: Futura;
         position: absolute;
@@ -133,6 +130,9 @@
         height: 2.5em;
         line-height: 2.5em;
         background-color: black;
+      }
+      .arrow-tap-here {
+        font-size: 130%;
       }
       .middle-arrow-body {
         position: absolute;
@@ -166,6 +166,43 @@
         border-top: 2.5em solid black;
         border-right: 2.5em solid transparent;
         border-left: 2.5em solid transparent;
+      }
+      @media (min-width: 769px) { 
+        #detour-vid-container {
+          height: calc(var(--vh, 1vh) * 80);
+          width: calc(var(--vh, 1vh) * 100 * .45);
+        }
+      }
+      @media (min-width: 767px) and (max-width: 1025px) { 
+        .arrow-body {
+          margin-top: 7em;
+          height: 4em;
+          line-height: 4em;
+        }
+        .arrow-right {
+          border-top: 4em solid transparent;
+          border-bottom: 4em solid transparent;
+          border-left: 4em solid black;
+          margin-top: 5em;
+        }
+        .arrow-tap-here {
+          font-size: 175%;
+        }
+        .middle-arrow-body {
+          height: 4em;
+        }
+        .detour-button {
+          font-size: 175%;
+        }
+        .middle-arrow-body-down-fly {
+          width: 4em;
+        }
+        .arrow-down {
+          width: 8em;
+          border-top: 4em solid black;
+          border-right: 4em solid transparent;
+          border-left: 4em solid transparent;
+        }
       }
     </style>
   </head>
@@ -260,7 +297,7 @@
                 animate-in-duration=".5s"
               >
                 <div class="arrow-body">
-                  <span style="font-size: 130%">TAP HERE TO CONTINUE</span>
+                  <span class="arrow-tap-here">TAP HERE TO CONTINUE</span>
                 </div>
                 <div class="arrow-right"></div>
               </div>
@@ -331,7 +368,7 @@
 
     <div id="detour-window">
       <div id="detour-vid-container">
-        <span id="DetourLanding"></span>
+        <div id="DetourLanding"></div>
         <a id="detour-return"><span class="return-button button-style">&#8593;</span></a>
         <a id="detour-restart"><span class="restart-button button-style">&#8634;</span></a>
         <video class="detour-vid" src="./videos/RP3.mp4" style="display: none" playsinline>
@@ -340,6 +377,7 @@
         </video>
         <video class="detour-vid" src="./videos/RP5.mp4" style="display: none" playsinline>
         </video>
+        
       </div>
     </div>
 

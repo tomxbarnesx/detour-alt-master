@@ -26,7 +26,7 @@ let active;
 for (var i = 0; i < detourTriggers.length; i++) {
     detourButtons[i].id = "trigger"+i;
     detourTriggers[i].addEventListener("click", event => {
-        document.getElementById('DetourLanding').scrollIntoView(true);
+        document.getElementById('DetourLanding').scrollIntoView({behavior:"smooth"});
         active = event.target.id.slice(-1);
         detourVids[active].style.display = "block";
         detourVids[active].play();
@@ -34,7 +34,7 @@ for (var i = 0; i < detourTriggers.length; i++) {
 };
 
 detourReturn.addEventListener("click", function(){
-    document.getElementById('return-target').scrollIntoView(true);
+    document.getElementById('return-target').scrollIntoView({behavior:"smooth"});
     detourVids[active].pause();
     detourVids[active].style.display = "none";
 })
