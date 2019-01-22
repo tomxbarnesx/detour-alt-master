@@ -9,7 +9,6 @@
     <script async custom-element="amp-story"
         src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
     <!-- <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script> -->
-    <script async src="./smoothscroll.min.js"></script>
     <script async src="./detour.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <title>Deconstructed: Russian Psyops</title>
@@ -28,8 +27,9 @@
       body {
         background: rgb(128,128,128);
         background: radial-gradient(circle, rgba(128,128,128,1) 48%, rgba(46,46,46,1) 100%);
-        text-size-adjust: none;
         scroll-behavior: smooth;
+        position: static !important;
+        text-size-adjust: none;
       }
 
       /* DETOUR STYLES */ 
