@@ -65,6 +65,7 @@
         padding: 5px;
         font-size: 130%;
         color: white;
+        margin-bottom: .5em;
       }
       .return-button {
         border-radius: 50%;
@@ -100,12 +101,6 @@
         align-items: center;
         overflow: hidden;
         box-shadow: 0px 0px 20px 2px rgb(43, 43, 43);  
-      }
-      @media (max-width: 768.98px) {
-        #detour-vid-container {
-          top: 0;
-          border-radius: 0em;
-        }
       }
 /* DETOUR ARROW STYLES */
 
@@ -169,9 +164,18 @@
         border-right: 2.5em solid transparent;
         border-left: 2.5em solid transparent;
       }
+      @media (max-width: 768.98px) {
+        #detour-vid-container {
+          top: 0;
+          border-radius: 0em;
+        }
+      }
       @media (min-width: 769px) { 
         .return-button {
           padding: 0px 10px;
+        }
+        .restart-button {
+          padding: 1px 9px;
         }
         #detour-vid-container {
           height: calc(var(--vh, 1vh) * 80);
@@ -360,8 +364,8 @@
               animate-in="fly-in-bottom"
               animate-in-delay="0s"
               animate-in-duration=".8s">
-              <a class="detour-trigger"><span class="detour-button button-style">FOX</span></a>
-              <a class="detour-trigger"><span class="detour-button button-style">CNN</span></a>
+              <a class="detour-trigger"><div class="detour-button button-style">FOX</div></a>
+              <a class="detour-trigger"><div class="detour-button button-style">CNN</div></a>
             </div>
           </amp-story-cta-layer>
         </amp-story-page>
