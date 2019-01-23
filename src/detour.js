@@ -22,7 +22,7 @@ let detourReturn = document.getElementById("detour-return");
 let detourRestart = document.getElementById("detour-restart");
 let active;
 
-for (var i = 0; i < detourTriggers.length; i++) {
+for (let i = 0; i < detourTriggers.length; i++) {
     detourButtons[i].id = "trigger"+i;
     detourTriggers[i].addEventListener("click", event => {
         document.getElementById('DetourLanding').scrollIntoView({behavior:"smooth"});
@@ -30,6 +30,9 @@ for (var i = 0; i < detourTriggers.length; i++) {
         detourVids[active].style.display = "block";
         detourVids[active].play();
     });
+    // detourVids[i].addEventListener("ended", event => {
+    //     detourReturn.classList.add("glow");
+    // })
 };
 
 detourReturn.addEventListener("click", function(){

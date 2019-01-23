@@ -67,20 +67,62 @@
         color: white;
         margin-bottom: .5em;
       }
-      .return-button {
-        border-radius: 50%;
-        padding: 0px 7px;
-        position: absolute;
-        top: .5em;
-        left: .5em;
-      }
       .restart-button {
-        position: absolute;
-        border-radius: 50%;
-        padding: 0px 8px;
-        top: .5em;
-        left: 2.5em;
+        position: relative;
+        margin-top: .75em;
       }
+      .detour-tool-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 40%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .detour-tool {
+        width: 3em;
+        position: absolute;
+        z-index: 9999;
+        cursor: pointer;
+      }
+      .ring {
+        position: relative;
+        height: 3em;
+        width: 3em;
+        margin-top: .75em;
+        border-radius: 50%;
+      }
+      .ring2 {
+        position: relative;
+      }
+      .ring:before, .ring:after {
+        z-index: 9998;
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        border-radius: 50%;
+        box-shadow: 0 0 15px #000;
+        animation: glow-grow 2s ease-out infinite;
+      }
+      .ring:after {
+        animation-delay: .66s;
+      }
+
+      @keyframes glow-grow {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+
       .detour-vid {
         z-index: 9997;
         width: 100%;
@@ -164,6 +206,7 @@
         border-right: 2.5em solid transparent;
         border-left: 2.5em solid transparent;
       }
+
       @media (max-width: 768.98px) {
         #detour-vid-container {
           top: 0;
@@ -171,12 +214,12 @@
         }
       }
       @media (min-width: 769px) { 
-        .return-button {
-          padding: 0px 10px;
+        /* .return-button {
+          padding: .9px 11px;
         }
         .restart-button {
-          padding: 1px 9px;
-        }
+          padding: 1px 10px;
+        } */
         #detour-vid-container {
           height: calc(var(--vh, 1vh) * 80);
           width: calc(var(--vh, 1vh) * 100 * .45);
@@ -212,6 +255,16 @@
           border-right: 4em solid transparent;
           border-left: 4em solid transparent;
         }
+        .detour-tool-box {
+          width: 30%;
+        }
+        .detour-tool {
+          width: 4em;
+        }
+        .ring {
+          height: 4em;
+          width: 4em;
+        }
       }
     </style>
   </head>
@@ -226,6 +279,7 @@
         
         <amp-story-page
           id="Launch" 
+          background-audio="./videos/Tap_to_begin_slide.mp3"
         >
             <!-- <amp-install-serviceworker
                 src="./service-worker.js"
@@ -378,8 +432,10 @@
     <div id="detour-window">
       <div id="detour-vid-container">
         <div id="DetourLanding"></div>
-        <a id="detour-return"><span class="return-button button-style">&#8593;</span></a>
-        <a id="detour-restart"><span class="restart-button button-style">&#8634;</span></a>
+        <div class="detour-tool-box">
+          <a id="detour-return"><div class="ring"><img class="return-button detour-tool" src="./images/up.png"/></div></a>
+          <a id="detour-restart"><div class="ring2"><img class="restart-button detour-tool" src="./images/replay.png"/></div></a>
+        </div>
         <video class="detour-vid" src="./videos/RP3.mp4" style="display: none" playsinline>
         </video>
         <video class="detour-vid" src="./videos/RP4.mp4" style="display: none" playsinline>
