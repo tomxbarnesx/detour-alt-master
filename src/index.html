@@ -75,7 +75,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        width: 40%;
+        width: 30%;
         position: absolute;
         top: 0;
         left: 0;
@@ -86,17 +86,14 @@
         z-index: 9999;
         cursor: pointer;
       }
-      .ring {
+      .return-ring {
         position: relative;
         height: 3em;
         width: 3em;
         margin-top: .75em;
         border-radius: 50%;
       }
-      .ring2 {
-        position: relative;
-      }
-      .ring:before, .ring:after {
+      #ring:before, #ring:after {
         z-index: 9998;
         position: absolute;
         content: '';
@@ -105,13 +102,12 @@
         top: 0%;
         left: 0%;
         border-radius: 50%;
-        box-shadow: 0 0 15px #000;
+        box-shadow: 0 0 15px #fff;
         animation: glow-grow 2s ease-out infinite;
       }
-      .ring:after {
+      #ring:after {
         animation-delay: .66s;
       }
-
       @keyframes glow-grow {
         0% {
           opacity: 1;
@@ -122,7 +118,6 @@
           opacity: 0;
         }
       }
-
       .detour-vid {
         z-index: 9997;
         width: 100%;
@@ -145,12 +140,10 @@
         box-shadow: 0px 0px 20px 2px rgb(43, 43, 43);  
       }
 /* DETOUR ARROW STYLES */
-
       #return-target {
         height: 1px;
         visibility: hidden;
       }
-
       .arrow-right {
         position: absolute;
         margin-top: 3.3em;
@@ -214,12 +207,6 @@
         }
       }
       @media (min-width: 769px) { 
-        /* .return-button {
-          padding: .9px 11px;
-        }
-        .restart-button {
-          padding: 1px 10px;
-        } */
         #detour-vid-container {
           height: calc(var(--vh, 1vh) * 80);
           width: calc(var(--vh, 1vh) * 100 * .45);
@@ -255,9 +242,6 @@
           border-right: 4em solid transparent;
           border-left: 4em solid transparent;
         }
-        .detour-tool-box {
-          width: 30%;
-        }
         .detour-tool {
           width: 4em;
         }
@@ -265,6 +249,30 @@
           height: 4em;
           width: 4em;
         }
+      }
+      /* SAFARI ONLY STYLES */
+      @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+          .arrow-right { 
+           margin-left: 20%;
+          } 
+          .arrow-body {
+            width: 20%;
+          }
+          .middle-arrow-body {
+            width: 13%;
+          }
+          .middle-arrow-body-down-fly {
+            left: 11%;
+            margin: 0;
+            height: 25%;
+          }
+          .arrow-down {
+            top: 54%;
+            left: 9.5%;
+            right: 0;
+            margin: 0;
+          }
+        } 
       }
     </style>
   </head>
@@ -433,8 +441,8 @@
       <div id="detour-vid-container">
         <div id="DetourLanding"></div>
         <div class="detour-tool-box">
-          <a id="detour-return"><div class="ring"><img class="return-button detour-tool" src="./images/up.png"/></div></a>
-          <a id="detour-restart"><div class="ring2"><img class="restart-button detour-tool" src="./images/replay.png"/></div></a>
+          <a id="detour-return"><div class="return-ring"><img class="return-button detour-tool" src="./images/up.png"/></div></a>
+          <a id="detour-restart"><img class="restart-button detour-tool" src="./images/replay.png"/></a>
         </div>
         <video class="detour-vid" src="./videos/RP3.mp4" style="display: none" playsinline>
         </video>
