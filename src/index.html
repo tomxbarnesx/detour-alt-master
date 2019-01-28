@@ -250,7 +250,7 @@
       }
       /* SAFARI ONLY STYLES */
 
-      @media not all and (min-resolution:.001dpcm) { @media {
+      /* @media not all and (min-resolution:.001dpcm) { @media {
 
         .arrow-right { margin-left: 20%; }
         .arrow-body { width: 20%; }
@@ -262,7 +262,30 @@
             right: 0;
             margin: 0;
           }
-      }}
+      }} */
+
+      _:default:not(:root:root), .arrow-right.safari_only {
+        margin-left: 20%;
+      }
+      _:default:not(:root:root), .arrow-body.safari_only {
+        width: 20%;
+      }
+
+      _:default:not(:root:root), .middle-arrow-body.safari_only {
+        width: 13%; 
+      }
+
+      _:default:not(:root:root), .middle-arrow-body-down-fly.safari_only {
+        left: 11%; margin: 0; height: 25%;      
+      }
+
+      _:default:not(:root:root), .arrow-down.safari_only {
+        top: 54%;
+        left: 9.5%;
+        right: 0;
+        margin: 0;
+      }
+
 
       /* _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-right { margin-left: 20%; } 
       _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-body { width: 20%; }
@@ -367,18 +390,18 @@
                 animate-in-delay="1.7s"
                 animate-in-duration=".5s"
               >
-                <div class="arrow-body">
+                <div class="arrow-body safari_only">
                   <span class="arrow-tap-here">TAP HERE TO CONTINUE</span>
                 </div>
-                <div class="arrow-right"></div>
+                <div class="arrow-right safari_only"></div>
               </div>
 
-              <div class="middle-arrow-body"
+              <div class="middle-arrow-body safari_only"
                 animate-in="fly-in-left"
                 animate-in-delay=".2s"
                 animate-in-duration=".5s"
               ></div>
-              <div class="middle-arrow-body-down-fly"
+              <div class="middle-arrow-body-down-fly safari_only"
                 animate-in="fly-in-top"
                 animate-in-duration=".7s"
                 >
@@ -388,7 +411,7 @@
                   animate-in-delay=".7s"
                 ></div>
               </div>
-              <div class="arrow-down"
+              <div class="arrow-down safari_only"
                 animate-in="fade-in"
                 animate-in-duration=".2s"
                 animate-in-delay=".6s"
