@@ -31,9 +31,7 @@
         position: static !important;
         text-size-adjust: none;
       }
-
       /* DETOUR STYLES */ 
-
       .cta-experiment {
           margin: 0 auto;
           width: 90%;
@@ -51,6 +49,27 @@
         position: relative;
         justify-content: center;
         align-items: center;
+      }
+      .detour-vid {
+        z-index: 9997;
+        width: 100%;
+        position: absolute;
+      }
+      #DetourLanding {
+        position: absolute;
+        top: 50%;
+      }
+      #detour-vid-container {
+        position: absolute;
+        background-color: #000;
+        border-radius: 1em;
+        height: calc(var(--vh, 1vh) * 100);
+        width: calc(var(--vw, 1vw) * 100);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: 0px 0px 20px 2px rgb(43, 43, 43);  
       }
       .button-style {
         color: #4c617a;
@@ -118,28 +137,7 @@
           opacity: 0;
         }
       }
-      .detour-vid {
-        z-index: 9997;
-        width: 100%;
-        position: absolute;
-      }
-      #DetourLanding {
-        position: absolute;
-        top: 50%;
-      }
-      #detour-vid-container {
-        position: absolute;
-        background-color: #000;
-        border-radius: 1em;
-        height: calc(var(--vh, 1vh) * 100);
-        width: calc(var(--vw, 1vw) * 100);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-        box-shadow: 0px 0px 20px 2px rgb(43, 43, 43);  
-      }
-/* DETOUR ARROW STYLES */
+      /* DETOUR ARROW STYLES */
       #return-target {
         height: 1px;
         visibility: hidden;
@@ -252,7 +250,21 @@
       }
       /* SAFARI ONLY STYLES */
 
-      _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-right { margin-left: 20%; } 
+      @media not all and (min-resolution:.001dpcm) { @media {
+
+        .arrow-right { margin-left: 20%; }
+        .arrow-body { width: 20%; }
+        .middle-arrow-body { width: 13%; }
+        .middle-arrow-body-down-fly { left: 11%; margin: 0; height: 25%; }
+        .arrow-down {
+            top: 54%;
+            left: 9.5%;
+            right: 0;
+            margin: 0;
+          }
+      }}
+
+      /* _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-right { margin-left: 20%; } 
       _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-body { width: 20%; }
       _::-webkit-:-webkit-full-screen:host:not(:root:root), .middle-arrow-body { width: 13%; }
       _::-webkit-:-webkit-full-screen:host:not(:root:root), .middle-arrow-body-down-fly { left: 11%; margin: 0; height: 25%; }
@@ -261,7 +273,7 @@
             left: 9.5%;
             right: 0;
             margin: 0;
-          }
+          } */
     </style>
   </head>
   <body>
