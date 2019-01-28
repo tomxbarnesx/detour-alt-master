@@ -204,12 +204,51 @@
           border-radius: 0em;
         }
       }
+
       @media (min-width: 769px) { 
         #detour-vid-container {
           height: calc(var(--vh, 1vh) * 80);
           width: calc(var(--vh, 1vh) * 100 * .45);
         }
+      }
 
+      @media (min-width: 1000px) and (max-width: 1299px) {
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-tap-here {
+          font-size: 100%;
+        }
+        
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-right.safari_only {
+          margin-left: 25%;
+        }
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-body.safari_only {
+          width: 25%;
+        }
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body.safari_only {
+          top: 22%;
+          width: 14%; 
+        }
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body-down-fly.safari_only {
+          left: 14%; 
+          margin: 0; 
+          height: 33%;    
+          top: 22%;  
+        }
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-down.safari_only {
+          top: 54%;
+          left: 12.1%;
+          right: 0;
+          margin: 0;
+        }
+      }
+      @media (min-width: 1300px) { 
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-tap-here {
+          font-size: 100%;
+        }
+        
         _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-right.safari_only {
           margin-left: 20%;
         }
@@ -218,16 +257,20 @@
         }
 
         _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body.safari_only {
-          width: 13%; 
+          top: 22%;
+          width: 14%; 
         }
 
         _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body-down-fly.safari_only {
-          left: 11%; margin: 0; height: 25%;      
+          left: 12%; 
+          margin: 0; 
+          height: 33%;    
+          top: 22%;  
         }
 
         _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-down.safari_only {
           top: 54%;
-          left: 9.5%;
+          left: 10.6%;
           right: 0;
           margin: 0;
         }
@@ -270,35 +313,6 @@
           width: 4em;
         }
       }
-      /* SAFARI ONLY STYLES */
-
-      /* @media not all and (min-resolution:.001dpcm) { @media {
-
-        .arrow-right { margin-left: 20%; }
-        .arrow-body { width: 20%; }
-        .middle-arrow-body { width: 13%; }
-        .middle-arrow-body-down-fly { left: 11%; margin: 0; height: 25%; }
-        .arrow-down {
-            top: 54%;
-            left: 9.5%;
-            right: 0;
-            margin: 0;
-          }
-      }} */
-
-
-
-
-      /* _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-right { margin-left: 20%; } 
-      _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-body { width: 20%; }
-      _::-webkit-:-webkit-full-screen:host:not(:root:root), .middle-arrow-body { width: 13%; }
-      _::-webkit-:-webkit-full-screen:host:not(:root:root), .middle-arrow-body-down-fly { left: 11%; margin: 0; height: 25%; }
-      _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-down {
-            top: 54%;
-            left: 9.5%;
-            right: 0;
-            margin: 0;
-          } */
     </style>
   </head>
   <body>
