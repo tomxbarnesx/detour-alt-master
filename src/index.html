@@ -209,6 +209,28 @@
           height: calc(var(--vh, 1vh) * 80);
           width: calc(var(--vh, 1vh) * 100 * .45);
         }
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-right.safari_only {
+          margin-left: 20%;
+        }
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-body.safari_only {
+          width: 20%;
+        }
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body.safari_only {
+          width: 13%; 
+        }
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body-down-fly.safari_only {
+          left: 11%; margin: 0; height: 25%;      
+        }
+
+        _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-down.safari_only {
+          top: 54%;
+          left: 9.5%;
+          right: 0;
+          margin: 0;
+        }
       }
       @media (min-width: 767px) and (max-width: 1025px) { 
         .arrow-body {
@@ -264,27 +286,7 @@
           }
       }} */
 
-      _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-right.safari_only {
-        margin-left: 20%;
-      }
-      _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-body.safari_only {
-        width: 20%;
-      }
 
-      _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body.safari_only {
-        width: 13%; 
-      }
-
-      _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .middle-arrow-body-down-fly.safari_only {
-        left: 11%; margin: 0; height: 25%;      
-      }
-
-      _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-down.safari_only {
-        top: 54%;
-        left: 9.5%;
-        right: 0;
-        margin: 0;
-      }
 
 
       /* _::-webkit-:-webkit-full-screen:host:not(:root:root), .arrow-right { margin-left: 20%; } 
