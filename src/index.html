@@ -200,6 +200,40 @@
         border-left: 2.5em solid transparent;
       }
 
+            /*SWIPER EXPERIMENTS*/
+            .swiper-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        color: white;
+      }
+
+      .swiper-flex {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+      }
+
+      .swiper-text {
+        padding: 4em;
+        font-family: Futura;
+        font-size: 100%;      
+      }
+
+      .swiper-button-next, .swiper-button-prev {
+        background-size: 25px 25px;
+      }
+
+      .swiper-pagination-bullet {
+        opacity: .8; /*was 0.2 and was impossible to see on some background images*/
+      }
+      .swiper-pagination-bullet-active {
+        background: #ffffff;
+      }
+
       @media (max-width: 768px) {
         #detour-vid-container {
           top: 0;
@@ -213,6 +247,9 @@
           margin: auto;
           height: calc(var(--vh, 1vh) * 100);
           width: calc(var(--vh, 1vh) * 135 * .45);
+        }
+        .swiper-flex {
+          width: 75%;
         }
       }
 
@@ -317,40 +354,6 @@
           width: 4em;
         }
       }
-
-      /*SWIPER EXPERIMENTS*/
-      .swiper-container {
-        width: 100%;
-        height: 100%;
-      }
-
-      .swiper-slide {
-        color: white;
-      }
-
-      .swiper-flex {
-        display: flex;
-        height: 100%;
-        width: 75%;
-        align-items: center;
-      }
-
-      .swiper-text {
-        padding: 4em;
-        font-family: Futura;
-        font-size: 100%;      
-      }
-
-      .swiper-button-next, .swiper-button-prev {
-        background-size: 25px 25px;
-    }
-
-    .swiper-pagination-bullet {
-      opacity: .8; /*was 0.2 and was impossible to see on some background images*/
-    }
-    .swiper-pagination-bullet-active {
-      background: #ffffff;
-    }
       
     </style>
   </head>
