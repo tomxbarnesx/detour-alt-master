@@ -17,7 +17,7 @@ window.addEventListener('resize', () => {
 
 let detourTriggers = document.getElementsByClassName("detour-trigger");
 let detourButtons = document.getElementsByClassName("detour-button");
-let detourVids = document.getElementsByClassName("detour-vid");
+// let detourVids = document.getElementsByClassName("detour-vid");
 let detourReturn = document.getElementById("detour-return");
 let detourRestart = document.getElementById("detour-restart");
 let returnRing = document.getElementsByClassName("return-ring")[0];
@@ -31,20 +31,20 @@ for (let i = 0; i < detourTriggers.length; i++) {
     detourTriggers[i].addEventListener("click", event => {
         document.getElementById('DetourLanding').scrollIntoView({behavior:"smooth"});
         active = event.target.id.slice(-1);
-        detourVids[active].style.display = "block";
-        detourVids[active].play();
+        // detourVids[active].style.display = "block";
+        // detourVids[active].play();
     });
-    detourVids[i].addEventListener("ended", event => {
-        returnRing.id = "ring"
-    })
+    // detourVids[i].addEventListener("ended", event => {
+    //     returnRing.id = "ring"
+    // })
 };
 
 // ADD EVENT LISTENER TO THE RETURN SCROLL
 
 detourReturn.addEventListener("click", function(){
     document.getElementById('return-target').scrollIntoView({behavior:"smooth"});
-    detourVids[active].pause();
-    detourVids[active].style.display = "none";
+    // detourVids[active].pause();
+    // detourVids[active].style.display = "none";
     if (returnRing.id == "ring") {
         returnRing.removeAttribute("id");
     }
@@ -52,9 +52,9 @@ detourReturn.addEventListener("click", function(){
 
 // RESTART BUTTON EVENT LISTENER
 
-detourRestart.addEventListener("click", function() {
-    detourVids[active].currentTime = 0;
-    if (returnRing.id == "ring") {
-        returnRing.removeAttribute("id");
-    }
-})
+// detourRestart.addEventListener("click", function() {
+//     detourVids[active].currentTime = 0;
+//     if (returnRing.id == "ring") {
+//         returnRing.removeAttribute("id");
+//     }
+// })
