@@ -234,6 +234,15 @@
         background: #ffffff;
       }
 
+      /* SCROLL EXPERIMENTS */
+      .scroll-container {
+        font-family: Futura;
+        color: white;
+        padding: 3em;
+        padding-top: 3.5em;
+        overflow: scroll;
+      }
+
       @media (max-width: 768px) {
         #detour-vid-container {
           top: 0;
@@ -284,6 +293,7 @@
           margin: 0;
         }
       }
+
       @media (min-width: 1300px) { 
 
         _:default:not(:root:root), _:-webkit-full-screen-ancestor, :root .arrow-tap-here {
@@ -316,6 +326,7 @@
           margin: 0;
         }
       }
+
       @media (min-width: 767px) and (max-width: 1025px) { 
         .arrow-body {
           margin-top: 7em;
@@ -522,14 +533,29 @@
       <div id="detour-vid-container">
         <div id="DetourLanding"></div>
         <div class="detour-tool-box">
-          <a id="detour-restart"><img class="restart-button detour-tool" src="./images/replay.png"/></a>
+          <!-- <a id="detour-restart"><img class="restart-button detour-tool" src="./images/replay.png"/></a> -->
           <a id="detour-return"><div class="return-ring"><img class="return-button detour-tool" src="./images/up.png"/></div></a>
         </div>
             
-            <div class="swiper-container">
-              <!-- Additional required wrapper -->
+            <div class="scroll-container">
+                <h2>Welcome to La 72! We have only three rules here:</h2>
+
+                <p>1. No violence &ndash; neither verbal, nor physical; whether against men, women, minors or people of diverse sexual preferences.</p>
+                
+                <p>2. No business &ndash; all our services are completely free and you can stay here as long as you need. No one within these walls is permitted to sell anything, including their services as a guide&#8230; [this part is to avoid &lsquo;coyotes&rsquo;, people-smugglers]</p>
+                
+                <p>3. No alcohol or drugs &ndash; and you cannot enter under the influence of either For security, our gates are always manned and only open 9am-1pm and 2.30-6pm. The only exception is when the train approaches&#8230; the guards always keep watch and when they hear the train approaching they will shout &ldquo;&iexcl;EL TREN!&rdquo; or &ldquo;&iexcl;LA BESTIA!&rdquo;. Whether at 2pm or 2am, they will open the gates and give you enough time to run to the tracks and try to jump on the train.</p>
+                
+                <p>For those of you who have suffered assault or robbery along your route, I strongly encourage you to talk to our lawyers. We also have lawyers who are experts in immigration and can help you to apply for refugee status or obtain work papers.</p>
+                
+                <p>We have four dormitory buildings &ndash; men, women, unaccompanied minors and LGBT &ndash; and you may only enter into your respective building. Inside are facilities for showering or washing clothes. Here, next to the main common area, we provide three free meals per day.</p>
+                
+                <em>Source: La 72 volunteer Neeraj Saksena Mashru in a blog post for Sierra Club.</em>
+            </div>
+        
+            <!-- <div class="swiper-container">
               <div class="swiper-wrapper">
-                  <!-- Slides -->
+
                 <div class="swiper-slide">
                   <div class="swiper-flex">
                     <div class="swiper-text">
@@ -556,19 +582,17 @@
                   </div>
                 </div>
                   ...
-              </div>
+              </div> 
 
-              <!-- If we need pagination -->
               <div class="swiper-pagination"></div>
           
-              <!-- If we need navigation buttons -->
               <div class="swiper-button-prev swiper-button-white"></div>
               <div class="swiper-button-next swiper-button-white"></div>
           
-              <!-- If we need scrollbar -->
               <div class="swiper-scrollbar"></div>
-            </div>
+            </div> -->
         
+
           <!-- <video class="detour-vid" src="./videos/RP3.mp4" style="display: none" playsinline>
           </video>
           <video class="detour-vid" src="./videos/RP4.mp4" style="display: none" playsinline>
