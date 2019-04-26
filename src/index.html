@@ -14,12 +14,20 @@
     <title>Deconstructed: Russian Psyops</title>
     <link rel="canonical" href="https://tomxbarnesx.github.io/detour-alt-master/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
     <meta name="viewport"
         content="width=device-width,minimum-scale=1,initial-scale=1">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
       amp-story {
-        font-family: 'Roboto Condensed', sans-serif;
+        font-family: Futura, sans-serif !important;
         color: #fff;
       }
       amp-story-page {
@@ -32,6 +40,9 @@
         position: static !important;
         text-size-adjust: none;
       }
+      button.i-amphtml-story-page-play-button.i-amphtml-story-system-reset {
+        display: none !important;
+      }
       /* DETOUR STYLES */ 
       .cta-experiment {
           margin: 0 auto;
@@ -41,9 +52,11 @@
       a {
         text-decoration: none;
       }
+      .white-link {
+        color: white;
+      }
       #detour-window {
         margin-top: calc(var(--vh, 1vh) * 100);
-        height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
         display: flex;
         position: relative;
@@ -59,7 +72,7 @@
         position: absolute;
         top: 50%;
       }
-      #detour-vid-container {
+      #detour-master-container {
         position: absolute;
         background-color: #000;
         height: calc(var(--vh, 1vh) * 100);
@@ -69,6 +82,14 @@
         align-items: center;
         overflow: hidden;
         box-shadow: 0px 0px 20px 2px rgb(43, 43, 43);  
+      }
+      .detour-container.video {
+        width:100%;
+      }
+
+      .detour-container p {
+        font-size: 1.1rem;
+        line-height: 1.5;
       }
       .button-style {
         color: white;
@@ -84,6 +105,11 @@
         font-size: 130%;
         color: white;
         margin-bottom: .5em;
+      }
+      .detour-trigger {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
       .restart-button {
         position: relative;
@@ -159,8 +185,8 @@
         vertical-align: middle;
         margin-top: 6.5em;
         width: 88%;
-        height: 2.5em;
-        line-height: 2.5em;
+        height: 2.6em;
+        line-height: 2.6em;
         background-color: black;
       }
       .arrow-tap-here {
@@ -200,68 +226,168 @@
         border-left: 2.5em solid transparent;
       }
 
-            /*SWIPER EXPERIMENTS*/
-            .swiper-container {
+      /*SWIPER EXPERIMENTS*/
+      .detour-container.swiper {
         width: 100%;
         height: 100%;
       }
-
+      .swiper-container {
+        height:100%;
+      }
       .swiper-slide {
         color: white;
       }
-
       .swiper-flex {
         display: flex;
         height: 100%;
         width: 100%;
         align-items: center;
       }
-
       .swiper-text {
-        padding: 4em;
+        padding: 3.2em;
         font-family: Futura;
         font-size: 100%;      
       }
-
       .swiper-button-next, .swiper-button-prev {
         background-size: 25px 25px;
       }
-
+      .swiper-pagination-bullets{
+        bottom: 2%;
+        left: 0;
+        right: 0;
+      }
       .swiper-pagination-bullet {
         opacity: .8; /*was 0.2 and was impossible to see on some background images*/
       }
       .swiper-pagination-bullet-active {
         background: #ffffff;
       }
+      .swiper-slide {
+        width: 100%;
+      }
+      .swiper-image {
+        width: 100%;
+      }
 
       /* SCROLL EXPERIMENTS */
-      .scroll-container {
+      .scroller {
         font-family: Futura;
         color: white;
         padding: 3em;
         padding-top: 3.5em;
-        /* overflow: scroll; */
         overflow-y: scroll;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
       }
 
+      [data-f-id="pbf"] {
+        display: none !important;
+      }
+
+      /* MAP EXPERIMENTS */
+      .leaflet-control-container .leaflet-routing-container-hide {
+          display: none;
+      }
+
+      .leaflet-popup-content {
+        width: 15em !important;
+      }
+
+      .leaflet-popup-content p {
+        margin: 5px 0px;
+      }
+
+      #detourMap { 
+        height: calc(var(--vh, 1vh) * 100);
+        width: calc(var(--vh, 1vh) * 135 * .45);
+      }
+
+      /* LOADER */
+
+      .loader {
+        font-size: 10px;
+        margin: auto;
+        text-indent: -9999em;
+        width: 11em;
+        height: 11em;
+        border-radius: 50%;
+        background: #ffffff;
+        background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        -webkit-animation: load3 1.4s infinite linear;
+        animation: load3 1.4s infinite linear;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+      .loader:before {
+        width: 50%;
+        height: 50%;
+        background: #ffffff;
+        border-radius: 100% 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+      }
+      .loader:after {
+        background: #000000;
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        content: '';
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+      @-webkit-keyframes load3 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes load3 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      /* MEDIA QUERIES */
+      
       @media (max-width: 768px) {
-        #detour-vid-container {
+        #detour-master-container {
           top: 0;
+          height: calc(var(--vh, 1vh) * 95);
           border-radius: 0em;
         }
       }
 
       @media (min-width: 769px) { 
-        #detour-vid-container {
+        #detour-master-container {
           top: -8em;
           margin: auto;
           height: calc(var(--vh, 1vh) * 100);
           width: calc(var(--vh, 1vh) * 135 * .45);
-        }
-        .swiper-flex {
-          width: 75%;
         }
       }
 
@@ -368,7 +494,6 @@
           width: 4em;
         }
       }
-      
     </style>
   </head>
   <body>
@@ -497,141 +622,29 @@
               animate-in="fly-in-bottom"
               animate-in-delay="1.1s"
               animate-in-duration=".5s">
-              <a class="detour-trigger"><div class="detour-button button-style">DETOUR: LEARN HOW FENTANYL BOTCHED A RUSSIAN HOSTAGE CRISIS</div></a>
+              <div class="detour-button button-style"><a class="detour-trigger">DETOUR: LEARN HOW FENTANYL BOTCHED A RUSSIAN HOSTAGE CRISIS</a></div>
             </div>
           </amp-story-cta-layer>
-        </amp-story-page>
-        
-        <!-- <amp-story-page
-          id="Part1"
-          name="Part1"
-        >
-          
-          <amp-story-grid-layer template="fill">
-              <amp-img
-                src="./images/Part1.jpg"
-                layout="responsive"
-                width="598"
-                height="1068"
-              >
-              </amp-img>
-          </amp-story-grid-layer>
-          <amp-story-cta-layer>
-            <div class="cta-experiment"
-              animate-in="fly-in-bottom"
-              animate-in-delay="0s"
-              animate-in-duration=".8s">
-              <a class="detour-trigger"><div class="detour-button button-style">FOX</div></a>
-              <a class="detour-trigger"><div class="detour-button button-style">CNN</div></a>
-            </div>
-          </amp-story-cta-layer>
-        </amp-story-page> -->
-
-
-    
-        
+        </amp-story-page>        
     </amp-story>
 
     <div id="detour-window">
-      <div id="detour-vid-container">
+      <div id="detour-master-container">
         <div id="DetourLanding"></div>
         <div class="detour-tool-box">
-          <!-- <a id="detour-restart"><img class="restart-button detour-tool" src="./images/replay.png"/></a> -->
+          <a id="detour-restart"><img class="restart-button detour-tool" src="./images/replay.png"/></a>
           <a id="detour-return"><div class="return-ring"><img class="return-button detour-tool" src="./images/up.png"/></div></a>
         </div>
-            
-            <div class="scroll-container">
-                <h2>Welcome to La 72! We have only three rules here:</h2>
-
-                <p>1. No violence &ndash; neither verbal, nor physical; whether against men, women, minors or people of diverse sexual preferences.</p>
-                
-                <p>2. No business &ndash; all our services are completely free and you can stay here as long as you need. No one within these walls is permitted to sell anything, including their services as a guide&#8230; [this part is to avoid &lsquo;coyotes&rsquo;, people-smugglers]</p>
-                
-                <p>3. No alcohol or drugs &ndash; and you cannot enter under the influence of either For security, our gates are always manned and only open 9am-1pm and 2.30-6pm. The only exception is when the train approaches&#8230; the guards always keep watch and when they hear the train approaching they will shout &ldquo;&iexcl;EL TREN!&rdquo; or &ldquo;&iexcl;LA BESTIA!&rdquo;. Whether at 2pm or 2am, they will open the gates and give you enough time to run to the tracks and try to jump on the train.</p>
-                
-                <p>For those of you who have suffered assault or robbery along your route, I strongly encourage you to talk to our lawyers. We also have lawyers who are experts in immigration and can help you to apply for refugee status or obtain work papers.</p>
-                
-                <p>We have four dormitory buildings &ndash; men, women, unaccompanied minors and LGBT &ndash; and you may only enter into your respective building. Inside are facilities for showering or washing clothes. Here, next to the main common area, we provide three free meals per day.</p>
-                
-                <em>Source: La 72 volunteer Neeraj Saksena Mashru in a blog post for Sierra Club.</em>
-            </div>
-        
-            <!-- <div class="swiper-container">
-              <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                  <div class="swiper-flex">
-                    <div class="swiper-text">
-                      <p>Honduras is a country in Central America with a population of around 9 million people. It gained independence from Spain  in 1821 and slowly experienced a similar fate as its Central American neighbors. U.S. companies like the United Fruit Company — later Chiquita — moved into Honduras with big tax exemptions and land handouts.</p><p>They exported Honduran bananas but contributed little to the growth of the country’s economy.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="swiper-flex">
-                    <div class="swiper-text">
-                        <p>The term “banana republic”, used to describe a country that relies on one main export like bananas and is usually exploited for its resources by foreign interests, was first used in 1904 by the writer O. Henry to describe a fictionalized version of Honduras.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="swiper-flex">
-                    <div class="swiper-text">
-                        <p><em>"The consul was interested in his report. He was only twenty-four; and he had not been in Coralio long enough for his enthusiasm to cool in the heat of the tropics—a paradox that may be allowed between Cancer and Capricorn.</em></p>
-                        <p><em>"So many thousand bunches of bananas, so many thousand oranges and cocoanuts, so many ounces of gold dust, pounds of rubber, coffee, indigo and sarsaparilla—actually, exports were twenty per cent. Greater than for the previous year!"</em></p> 
-                        <p>— From O. Henry’s Cabbages and Kings</p>    
-                    </div>
-                  </div>
-                </div>
-                  ...
-              </div> 
-
-              <div class="swiper-pagination"></div>
-          
-              <div class="swiper-button-prev swiper-button-white"></div>
-              <div class="swiper-button-next swiper-button-white"></div>
-          
-              <div class="swiper-scrollbar"></div>
-            </div> -->
-        
-
-          <!-- <video class="detour-vid" src="./videos/RP3.mp4" style="display: none" playsinline>
+        <div class="detour-container video" style="display: none">
+          <video style="display: none" class="detour-vid" src="./videos/Part_2.mp4" playsinline>
           </video>
-          <video class="detour-vid" src="./videos/RP4.mp4" style="display: none" playsinline>
-          </video>
-          <video class="detour-vid" src="./videos/RP5.mp4" style="display: none" playsinline>
-          </video> -->
-          
+        </div>          
+        <!-- <div class="detour-container video" style="display: none"></div>
+          <div class="detour-container swiper" style="display: none"></div>
+          <div class="detour-container swiper" style="display: none"></div>       -->
         </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
-    <script>
-        var mySwiper = new Swiper ('.swiper-container', {
-          // Optional parameters
-          direction: 'horizontal',
-          loop: true,
-          // noSwiping: true,
-          // simulateTouch: false,
-      
-          // If we need pagination
-          pagination: {
-            el: '.swiper-pagination',
-          },
-      
-          // Navigation arrows
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-      
-          // And if we need scrollbar
-          scrollbar: {
-            el: '.swiper-scrollbar',
-          },
-        })
-      </script>
 </body>
 <style>
       .i-amphtml-story-progress-bar {
