@@ -65,11 +65,12 @@ function readDeviceOrientation() {
         if (Math.abs(window.orientation) === 90) {
             // Landscape
             setTimeout(function(){
-                document.getElementById('return-target').scrollIntoView()}, 323);
+                document.getElementById('return-target').scrollIntoView()
+                }, 150);
         } else {
             // Portrait
             setTimeout(function(){
-                document.getElementById('DetourLanding').scrollIntoView()}, 323)
+                document.getElementById('DetourLanding').scrollIntoView()}, 350)
         }
     }
 }
