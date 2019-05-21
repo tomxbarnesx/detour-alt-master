@@ -37,6 +37,7 @@
 
 
 // SIZING THE DETOUR VIEW HIEGHT FOR THE WINDOW
+let active, mySwiper, detourActivation;
 let vh = window.innerHeight * 0.01;
 let vw = window.innerWidth * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -47,7 +48,51 @@ window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
     let vw = window.innerWidth * 0.01;
     document.documentElement.style.setProperty('--vw', `${vw}px`);
+    // document.getElementById('DetourLanding').scrollIntoView({behavior:"smooth"});
 });
+
+// window.addEventListener('orientationchange', function(){
+//     console.log("changed", screen.orientation.angle);
+//     if (detourActivation){
+//     setTimeout(function(){
+//         document.getElementById('return-target').scrollIntoView()}, 350);
+//         // document.getElementById('DetourLanding').scrollIntoView()}, 350)
+//     }
+// })
+
+function readDeviceOrientation() {     		
+    if (detourActivation){
+        if (Math.abs(window.orientation) === 90) {
+            // Landscape
+            setTimeout(function(){
+                document.getElementById('return-target').scrollIntoView()}, 323);
+        } else {
+            // Portrait
+            setTimeout(function(){
+                document.getElementById('DetourLanding').scrollIntoView()}, 323)
+        }
+    }
+}
+
+window.onorientationchange = readDeviceOrientation;
+
+// var mql = window.matchMedia("(orientation: portrait)");
+
+// mql.addListener(function(m) {
+//     if(m.matches) {
+//         // document.getElementById('DetourLanding').scrollIntoView({behavior:"smooth"});
+//     }
+//     else {
+//         console.log("FUCK NO");
+//     }
+// });
+
+// If there are matches, we're in portrait
+// if(mql.matches) {  
+//     // Portrait orientation
+// } else {  
+//     // Landscape orientation
+// }
 
 // DETOUR HANDLING
 
@@ -65,7 +110,6 @@ let ring = document.getElementById("ring");
 // let mediaPrefix = 'https://frame-v-media-django.s3.amazonaws.com/'
 
 //DATA HANDLING
-let active, mySwiper;
 // const data = JSON.parse(document.getElementById("detours").value);
 // const subData = JSON.parse(document.getElementById("subDetours").value)
 
@@ -83,15 +127,21 @@ function detourLaunch(event) {
     console.log(active)
     if (detourContainers[active].classList.contains("video")) {
         videoCreate();
+        detourActivation = true;
     } else if (detourContainers[active].classList.contains("scroller")) {
         scrollerCreate();
+        detourActivation = true;
     } else if (detourContainers[active].classList.contains("swiper")) {
         swiperCreate();
+        detourActivation = true;
     } else if (detourContainers[active].classList.contains("map")) {
         mapCreate();
+        detourActivation = true;
     } else if (detourContainers[active].classList.contains("stacker")) {
         stackerCreate();
+        detourActivation = true;
     }
+    console.log(detourActivation)
 }
 
 //THE CREATE FUNCTIONS FOR THE VARIOUS ASSETS
@@ -337,14 +387,20 @@ detourReturn.addEventListener("click", function(){
     
     if (detourContainers[active].classList.contains("video")){
         videoDestroy();
+        detourActivation = false;
     } else if (detourContainers[active].classList.contains("scroller")) {
         scrollerDestroy();
+        detourActivation = false;
     } else if (detourContainers[active].classList.contains("swiper")) {
-        swiperDestroy(true, true)
+        swiperDestroy(true, true);
+        detourActivation = false;
+    } else if (detourContainers[active].classList.contains("stacker")) {
+        detourActivation = false;
     }
     if (returnRing.id == "ring") {
         returnRing.removeAttribute("id");
     }
+    console.log(detourActivation)
 })
 
 // RESTART BUTTON EVENT LISTENER
