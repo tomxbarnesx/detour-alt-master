@@ -70,7 +70,7 @@ function readDeviceOrientation() {
         } else {
             // Portrait
             setTimeout(function(){
-                document.getElementById('DetourLanding').scrollIntoView()}, 400)
+                document.getElementById('DetourLanding').scrollIntoView()}, 600)
         }
     }
 }
