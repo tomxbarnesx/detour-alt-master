@@ -321,7 +321,7 @@
         overflow: hidden;
         height: auto;
         max-height: 2.56em;
-        transition: max-height .6s ease-out;
+        transition: max-height .9s ease-out;
         margin-bottom: 1em;
         z-index: 99;
         cursor: pointer;
@@ -355,6 +355,9 @@
         background: rgba(0, 0, 0, 0.671);
         cursor: pointer;
       }
+      #lightbox-close:hover {
+        color: rgba(221, 221, 221, 0.671)
+      }
       .lightbox-slide {
         width: 100%;
         margin: 0 auto;
@@ -366,11 +369,14 @@
         position: absolute;
         right: 0;
         top: 0;
-        width: 2em;
-        height: 2em;        
-        padding: .4em;
-        margin: .3em;
+        width: 1em;
+        height: 1em;        
+        padding: .3em;
+        /* margin: .3em; */
         background: rgba(0, 0, 0, 0.671);
+      }
+      .lightbox-expander:hover {
+        filter: invert(12%);
       }
       .lightbox-expander img {
         width: 100%;
@@ -392,7 +398,7 @@
           width: unset;
         }
         #lightbox-close {
-          padding: .5em 1em;
+          margin: .5em 1em;
           font-size: 300%;
         }
       }
@@ -744,7 +750,7 @@
                 <div class="lightbox-expander">            
                   <img src="./images/expand.png">
                 </div>
-                <img class="lightbox" src="./images/propog-frame.jpg">
+                <img class="lightbox" src="./images/map.jpeg">
               </div>
             </div>
           </div>
@@ -756,7 +762,7 @@
                 <div class="lightbox-expander">            
                   <img src="./images/expand.png">
                 </div>
-                <img class="lightbox" src="./images/map.jpeg">
+                <img class="lightbox" src="./images/red.jpeg">
               </div>
               <p>It looks like this. And it will not be televised, because TV is for beta men.</p>
             </div>
@@ -771,8 +777,8 @@
           <div id="lightbox-modal" style="display: none;" i-amphtml-fixedid="F0">
             <div id="lightbox-close" onclick="closeLightbox()" class="white-link">×</div>
             <div class="lightbox-slide">
-              <img class="lightbox-modal-img" style="display: none;" src="./images/propog-frame.jpg">
-              <img class="lightbox-modal-img" style="display: none;" src="./images/map.jpeg">
+              <img class="lightbox-modal-img" onclick="closeLightbox()" style="display: none;" src="./images/map.jpeg">
+              <img class="lightbox-modal-img" onclick="closeLightbox()" style="display: none;" src="./images/red.jpeg">
             </div>
           </div>
 
