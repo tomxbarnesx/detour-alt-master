@@ -89,6 +89,8 @@ function detourLaunch(event) {
         swiperCreate();
     } else if (detourContainers[active].classList.contains("map")) {
         mapCreate();
+    } else if (detourContainers[active].classList.contains("stacker")) {
+        stackerCreate();
     }
 }
 
@@ -250,8 +252,57 @@ function mapCreate(){
     var marker7 = L.marker([26.927774, -101.455629]).addTo(mapInit);
     var marker8 = L.marker([28.695498, -100.517013]).addTo(mapInit);
     marker8.bindPopup("<b>Piedras Negras</b><br>Where Johnny planned to cross the U.S. - Mexico border.");
+}
 
+function cardUnfold(event) {
+    if (event.currentTarget.classList.contains("open")){
+        (event.currentTarget.classList.remove("open"))
+    } else {
+        event.currentTarget.classList.add("open")
+    }
+}
 
+let currentSlide;
+
+function showSlide(slideNum) {
+    currentSlide = slideNum;
+    let lightboxModals = document.getElementsByClassName("lightbox-modal-img");
+    lightboxModals[slideNum].style.display = "block"
+}
+
+function lightbox(event, slideNum) {
+    event.stopPropagation()
+    showSlide(slideNum)
+    let lightbox = document.getElementById("lightbox-modal");
+    lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+    let lightbox = document.getElementById("lightbox-modal");
+    let lightboxModals = document.getElementsByClassName("lightbox-modal-img");
+    lightboxModals[currentSlide].style.display = "none";
+    lightbox.style.display = "none";
+
+}
+
+function stackerCreate() {
+    detourContainers[active].style.display = "block";
+    detourRestart.style.display = "none";
+    let cards = document.getElementsByClassName("stacked-card");
+    let lightboxImages = document.getElementsByClassName("lightbox");
+    let lightboxExpander = document.getElementsByClassName("lightbox-expander");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].addEventListener("click", cardUnfold)
+    }
+    if (lightboxImages) {
+        for (let i = 0; i < lightboxImages.length; i++) {
+            lightboxImages[i].addEventListener("click", function(e) {
+                lightbox(e, i)});
+            lightboxExpander[i].addEventListener("click", function(e) {
+                lightbox(e, i)});
+        }
+    }
+    console.log("Stacker");
 }
 
 function videoDestroy() {
@@ -271,6 +322,12 @@ function swiperDestroy(){
     detourContainers[active].innerHTML = "";
     detourContainers[active].style.display = "none";
     detourRestart.style.display = "block";
+}
+
+function stackerDestroy() {
+    detourContainers[active].style.display = "none";
+    detourRestart.style.display = "block";
+    detourContainers[active].innerHTML = "";
 }
 
 // ADD EVENT LISTENER TO THE RETURN SCROLL
