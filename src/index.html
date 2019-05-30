@@ -21,8 +21,8 @@
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
       integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
       crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-    <meta name="viewport"
+<!--     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+ -->    <meta name="viewport"
         content="width=device-width,minimum-scale=1,initial-scale=1">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
@@ -602,17 +602,12 @@
         title="Deconstructed: Russian Psyops"        
         publisher="Frame"
         id="TopMost"
-            
       >
         
         <amp-story-page
           id="Launch" 
-          background-audio="./videos/Tap_to_begin_slide.mp3"
         >
-            <!-- <amp-install-serviceworker
-                src="./service-worker.js"
-                layout="nodisplay">
-            </amp-install-serviceworker> -->
+
           <amp-story-grid-layer template="fill">
               <amp-img
                 src="./images/Launch.jpg"
@@ -660,6 +655,24 @@
               </amp-video>
           </amp-story-grid-layer>  
         </amp-story-page>
+
+        <amp-story-page
+          id="RP3"
+          auto-advance-after=RP3-video
+        >
+
+          <amp-story-grid-layer template="fill">
+              <amp-video
+                id="RP3-video"
+                layout="fill"
+                src="./videos/RP2.mp4"
+                muted
+                autoplay
+                playsinline
+              >
+              </amp-video>
+          </amp-story-grid-layer>  
+        </amp-story-page>
         
 
         <amp-story-page
@@ -677,8 +690,7 @@
               >
               </amp-img>
 
-          </amp-story-grid-layer>
-
+          </amp-story-grid-layer> 
          <amp-story-grid-layer template="fill">
             <div class="arrow-master"
             >
@@ -725,9 +737,46 @@
               <div class="detour-button button-style"><a class="detour-trigger">DETOUR: LEARN HOW FENTANYL BOTCHED A RUSSIAN HOSTAGE CRISIS</a></div>
             </div>
           </amp-story-cta-layer>
-        </amp-story-page>        
-    </amp-story>
+        </amp-story-page>   
 
+        <amp-story-page
+          id="RP4"
+          auto-advance-after=RP4-video
+        >
+
+          <amp-story-grid-layer template="fill">
+              <amp-video
+                id="RP4-video"
+                layout="fill"
+                src="./videos/RP4.mp4"
+                muted
+                autoplay
+                playsinline
+              >
+              </amp-video>
+          </amp-story-grid-layer>  
+
+        </amp-story-page>    
+
+        <amp-story-page
+          id="RP5"
+          auto-advance-after=RP5-video
+        >
+
+          <amp-story-grid-layer template="fill">
+              <amp-video
+                id="RP5-video"
+                layout="fill"
+                src="./videos/RP5.mp4"
+                muted
+                autoplay
+                playsinline
+              >
+              </amp-video>
+          </amp-story-grid-layer>  
+        </amp-story-page> 
+
+    </amp-story>
     <div id="detour-window">
       <div id="detour-master-container">
         <div id="DetourLanding"></div>
@@ -736,13 +785,11 @@
           <a id="detour-return"><div class="return-ring"><img class="return-button detour-tool" src="./images/up.png"/></div></a>
         </div>
         <div class="detour-container stacker white-link" style="display: block;">
-          <!-- <video style="display: none" class="detour-vid" src="./videos/Part_2.mp4" playsinline>
-          </video> -->
+
           
           <h2>The Keys to Q</h2>
           <p>A brief primer on the unique terminology QAnoners use to discuss their theories. Tap any card below to expand and learn more.</p>
           <div class="stacked-card" style="background: url('./images/red.jpeg') top/100%">
-            <!-- <img class="stacked-background" src="./images/wood.png"> -->
             <h3>THE GREAT AWAKENING</h3>
             <div>
               <p>An event in which all the entire population will come to realize the truth of the Q doctrine and peace will reign forever.</p>

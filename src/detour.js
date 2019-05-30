@@ -148,6 +148,8 @@ function detourLaunch(event) {
 //THE CREATE FUNCTIONS FOR THE VARIOUS ASSETS
 function videoCreate() {
     detourContainers[active].style.display = "block";
+    returnSet()
+    restartSet()
     let video = detourContainers[active].children[0];
     let spinner = document.createElement("DIV");
     spinner.classList.add("loader");
@@ -184,6 +186,7 @@ function videoCreate() {
 function scrollerCreate() {
     detourContainers[active].style.display = "block";
     detourRestart.style.display = "none";
+    returnSet()
     detourContainers[active].insertAdjacentHTML("beforeend", data[active].fields.detour_scroller_text);
 }
 
@@ -191,7 +194,7 @@ function swiperCreate() {
     let container = detourContainers[active]
     container.style.display = "block";
     detourRestart.style.display = "none";
-
+    returnSet()
     let swipeContainer = document.createElement("DIV");
     swipeContainer.classList.add("swiper-container");
     container.insertBefore(swipeContainer, container.firstChild)
@@ -265,6 +268,7 @@ function mapCreate(){
     //Set up map container
     detourContainers[active].style.display = "block";
     detourRestart.style.display = "none";
+    returnSet()
     let map = document.createElement("DIV");
     map.id = "detourMap"
     detourContainers[active].appendChild(map);
@@ -339,6 +343,7 @@ function closeLightbox() {
 function stackerCreate() {
     detourContainers[active].style.display = "block";
     detourRestart.style.display = "none";
+    returnSet()
     let cards = document.getElementsByClassName("stacked-card");
     let lightboxImages = document.getElementsByClassName("lightbox");
     let lightboxExpander = document.getElementsByClassName("lightbox-expander");
@@ -383,37 +388,41 @@ function stackerDestroy() {
 
 // ADD EVENT LISTENER TO THE RETURN SCROLL
 
-detourReturn.addEventListener("click", function(){
-    document.getElementById('return-target').scrollIntoView({behavior:"smooth"});
-    
-    if (detourContainers[active].classList.contains("video")){
-        videoDestroy();
-        detourActivation = false;
-    } else if (detourContainers[active].classList.contains("scroller")) {
-        scrollerDestroy();
-        detourActivation = false;
-    } else if (detourContainers[active].classList.contains("swiper")) {
-        swiperDestroy(true, true);
-        detourActivation = false;
-    } else if (detourContainers[active].classList.contains("stacker")) {
-        detourActivation = false;
-    }
-    if (returnRing.id == "ring") {
-        returnRing.removeAttribute("id");
-    }
-    console.log(detourActivation)
-})
-
-// RESTART BUTTON EVENT LISTENER
-
-detourRestart.addEventListener("click", function() {
-    if (detourContainers[active].classList.contains("video")){
-        document.getElementsByClassName("detour-vid")[0].currentTime = 0;
+function returnSet() {
+    detourReturn.addEventListener("click", function(){
+        document.getElementById('return-target').scrollIntoView({behavior:"smooth"});
+        
+        if (detourContainers[active].classList.contains("video")){
+            videoDestroy();
+            detourActivation = false;
+        } else if (detourContainers[active].classList.contains("scroller")) {
+            scrollerDestroy();
+            detourActivation = false;
+        } else if (detourContainers[active].classList.contains("swiper")) {
+            swiperDestroy(true, true);
+            detourActivation = false;
+        } else if (detourContainers[active].classList.contains("stacker")) {
+            detourActivation = false;
+        }
         if (returnRing.id == "ring") {
             returnRing.removeAttribute("id");
         }
-    }
-});
+        console.log(detourActivation)
+    })
+}
+
+// RESTART BUTTON EVENT LISTENER
+
+function restartSet() {
+    detourRestart.addEventListener("click", function() {
+        if (detourContainers[active].classList.contains("video")){
+            document.getElementsByClassName("detour-vid")[0].currentTime = 0;
+            if (returnRing.id == "ring") {
+                returnRing.removeAttribute("id");
+            }
+        }
+    });
+}
 
 
 
