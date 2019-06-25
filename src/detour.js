@@ -141,6 +141,9 @@ function detourLaunch(event) {
     } else if (detourContainers[active].classList.contains("stacker")) {
         stackerCreate();
         detourActivation = true;
+    } else if (detourContainers[active].classList.contains("3dcard")){
+        card3DCreate();
+        detourActivation = true;
     }
     console.log(detourActivation)
 }
@@ -361,6 +364,13 @@ function stackerCreate() {
     console.log("Stacker");
 }
 
+function card3DCreate() {
+    detourContainers[active].style.display = "block";
+    detourRestart.style.display = "none";
+    returnSet()
+}
+
+
 function videoDestroy() {
     detourContainers[active].style.display = "none";
     video = document.getElementsByClassName("detour-vid")[0];
@@ -402,6 +412,8 @@ function returnSet() {
             swiperDestroy(true, true);
             detourActivation = false;
         } else if (detourContainers[active].classList.contains("stacker")) {
+            detourActivation = false;
+        } else if (detourContainers[active].classList.contains("3dcard")) {
             detourActivation = false;
         }
         if (returnRing.id == "ring") {
